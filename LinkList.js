@@ -57,6 +57,20 @@ class LinkList {
     this.size++;
   }
 
+  // Get at index
+  getAt(index) {
+    let current = this.head;
+    let count = 0;
+    while (current) {
+      if (count === index) {
+        return console.log(current.value);
+      }
+      count++;
+      current = current.next;
+    }
+    return null;
+  }
+
   // Print the list data
   printListData() {
     let current = this.head;
@@ -74,4 +88,5 @@ ll.insertFirst(100);
 ll.insertLast(200);
 ll.insertAt(300, 1);
 ll.insertAt(400, 0);
-ll.printListData();
+// ll.printListData();
+ll.getAt(2);
