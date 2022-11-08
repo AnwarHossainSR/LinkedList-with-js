@@ -71,6 +71,30 @@ class LinkList {
     return null;
   }
 
+  // Remove at index
+  removeAt(index) {
+    if (index < 0 || index > this.size) return;
+
+    let current = this.head;
+    let previous;
+    let count = 0;
+
+    // Remove first
+    if (index === 0) {
+      this.head = current.next;
+      this.size--;
+      return;
+    }
+
+    while (count < index) {
+      count++;
+      previous = current;
+      current = current.next;
+    }
+    previous.next = current.next;
+    this.size--;
+  }
+
   // Print the list data
   printListData() {
     let current = this.head;
@@ -88,5 +112,8 @@ ll.insertFirst(100);
 ll.insertLast(200);
 ll.insertAt(300, 1);
 ll.insertAt(400, 0);
-// ll.printListData();
-ll.getAt(2);
+ll.printListData();
+//ll.getAt(2);
+ll.removeAt(2);
+console.log('=====================');
+ll.printListData();
