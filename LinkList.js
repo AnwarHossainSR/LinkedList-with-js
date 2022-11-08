@@ -31,7 +31,31 @@ class LinkList {
     this.size++;
   }
 
-  
+  // Insert at index
+  insertAt(value, index) {
+    if (index < 0 || index > this.size) return;
+
+    if (index === 0) {
+      let newNode = new Node(value);
+      newNode.next = this.head;
+      this.head = newNode;
+      this.size++;
+      return;
+    }
+
+    const node = new Node(value);
+    let current, previous;
+    current = this.head;
+    let count = 0;
+    while (count < index) {
+      previous = current;
+      count++;
+      current = current.next;
+    }
+    node.next = current;
+    previous.next = node;
+    this.size++;
+  }
 
   // Print the list data
   printListData() {
