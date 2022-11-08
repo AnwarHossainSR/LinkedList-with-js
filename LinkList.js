@@ -17,7 +17,22 @@ class LinkList {
     this.size++;
   }
 
- 
+  // Insert last node
+  insertLast(value) {
+    if (!this.head) {
+      this.insertFirst(value);
+      return;
+    }
+    let current = this.head;
+    while (current.next) {
+      current = current.next;
+    }
+    current.next = new Node(value);
+    this.size++;
+  }
+
+  
+
   // Print the list data
   printListData() {
     let current = this.head;
