@@ -18,6 +18,15 @@ class LinkList {
   }
 
  
+  // Print the list data
+  printListData() {
+    let current = this.head;
+    while (current) {
+      console.log(current.value);
+      current = current.next;
+    }
+    console.log(this.size);
+  }
 }
 
 const ll = new LinkList();
